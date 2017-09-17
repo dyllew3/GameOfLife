@@ -58,8 +58,8 @@ public class GameOfLife {
     public GameOfLife(int rowLen, int columnLen){
 	if(rowLen <= 0 || columnLen <= 0)
 	    throw new IllegalArgumentException("Row and Column size must be a " +
-										   "positive whole number greater " +
-										   "than 0");
+					       "positive whole number greater " +
+					       "than 0");
         this.rowLen = rowLen;
         this.columnLen = columnLen; 
         board = new HashMap<Integer, HashMap<Integer, Boolean>>();
@@ -77,13 +77,13 @@ public class GameOfLife {
 	 */
 		if(x >= 0 && y >= 0 && x < this.getRowLen() & y < this.getColumnLen()){
 			HashMap<Integer, Boolean> cell;
-            if(board.containsKey(x)){
-                cell = board.get(x);
-            }
-            else{
-                cell = new HashMap<Integer, Boolean>();
-            }
-            cell.put(y, value);
+            		if(board.containsKey(x)){
+                		cell = board.get(x);
+            		}
+            		else{
+                		cell = new HashMap<Integer, Boolean>();
+            		}
+            		cell.put(y, value);
 			board.put(x, cell);
 			
 		}
@@ -97,13 +97,13 @@ public class GameOfLife {
 	 */
 		if(x >= 0 && y >= 0 && x < this.getRowLen() & y < this.getColumnLen()){
 			HashMap<Integer, Boolean> cell;
-            if(board.containsKey(x)){
-                cell = board.get(x);
-            }
-            else{
-                cell = new HashMap<Integer, Boolean>();
-            }
-            cell.put(y, value);
+            		if(board.containsKey(x)){
+                		cell = board.get(x);
+            		}
+            		else{
+                		cell = new HashMap<Integer, Boolean>();
+            		}
+            		cell.put(y, value);
 			board.put(x, cell);
 			
 		}
@@ -114,16 +114,15 @@ public class GameOfLife {
     public boolean getCellValue(int x, int y){
         Cell cell = new Cell(x, y);
         if(board.containsKey(x) && board.get(x).containsKey(y))
-			return board.get(x).get(y);
-		else
-			return false;
+		return board.get(x).get(y);
+	else
+		return false;
 	}
 
     public int getAliveNeighbours(int x, int y){
         int count = 0;
         for(int i = x - 1; i <= x + 1;i++){
-            for(int j = y - 1; j <= y + 1; j++){
-                
+            for(int j = y - 1; j <= y + 1; j++){              
                 if( i != x || j != y)
                     count += (this.getCellValue(i, j) ? 1 : 0 );
             }
